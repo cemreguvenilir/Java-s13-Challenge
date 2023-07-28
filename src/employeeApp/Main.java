@@ -1,5 +1,7 @@
 package employeeApp;
 
+import org.w3c.dom.ls.LSOutput;
+
 /**
  * Uygulamanın amacı Java'da nesne tabanlı programlamanın temellerinin oluşturulmasıdır.
  *
@@ -12,6 +14,21 @@ public class Main
      */
     private static void workWithData ()
     {
+        HealthPlan healthPlan = new HealthPlan(1, "x", Plan.GOLD);
+
+        String [] healthPlans = new String[3];
+        healthPlans[0] = healthPlan.getName();
+
+        Employee employee = new Employee(1, "cemreguvenilir", "guvenilircemre@gmail.com", "password", healthPlans );
+        System.out.println(employee);
+
+        employee.addHealthPlan(1, "z");
+        System.out.println(employee);
+
+        String[] developerNames = new String[3];
+        developerNames[0] = employee.getFullName();
+        Company company = new Company(1, "Workintech", 2000, developerNames );
+        System.out.println(company);
 
     }
 
@@ -28,4 +45,7 @@ public class Main
     {
         workWithData();
     }
+
+
+
 }
